@@ -1,7 +1,6 @@
-package com.kwahsog.dwauthdemo.resources;
+package com.kwahsog.dwauthdemo.config.resources;
 
 import com.codahale.metrics.annotation.Timed;
-import com.kwahsog.dwauthdemo.api.Saying;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -26,8 +25,8 @@ public class MainResource {
 
     @GET
     @Timed
-    public Saying sayHello(@QueryParam("name") Optional<String> name) {
+    public String sayHello(@QueryParam("name") Optional<String> name) {
         final String value = String.format(template, name.orElse(defaultName));
-        return new Saying(counter.incrementAndGet(), value);
+        return "hello world";
     }
 }
